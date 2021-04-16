@@ -33,6 +33,7 @@ const styles = theme => ({
         display: 'flex',
         background:"white",
     },
+    
     footer: {
         display:"flex",
         justifyContent: "flex-end", 
