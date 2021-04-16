@@ -1,6 +1,6 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { Paper, withStyles, Grid, Button, List, ListItem, ListItemText, ListItemSecondaryAction, Divider, Select, MenuItem, Typography, ListItemIcon, Container} from '@material-ui/core';
+import { Paper, withStyles, Grid, Button, List, ListItem,Badge,Avatar, ListItemText, ListItemSecondaryAction, Divider, Select, MenuItem, Typography, ListItemIcon, Container,Drawer} from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -17,15 +17,43 @@ import { Description } from '@material-ui/icons';
 import PanoramaOutlinedIcon from '@material-ui/icons/PanoramaOutlined';
 import VideocamOutlinedIcon from '@material-ui/icons/VideocamOutlined';
 import TocIcon from '@material-ui/icons/Toc';
+import SpeedIcon from '@material-ui/icons/Speed';
+import ListAltIcon from '@material-ui/icons/ListAlt';
+import EventAvailableIcon from '@material-ui/icons/EventAvailable';
+import FolderOpenIcon from '@material-ui/icons/FolderOpen';
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+import GetAppIcon from '@material-ui/icons/GetApp';
+import NotificationsIcon from '@material-ui/icons/Notifications';
+import SettingsIcon from '@material-ui/icons/Settings';
+import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
+import GroupWorkIcon from '@material-ui/icons/GroupWork';
+const drawerWidth = 200;
 const styles = theme => ({
     root: {
         display: 'flex',
         background:"white",
     },
+    footer: {
+        display:"flex",
+        justifyContent: "flex-end", 
+        marginTop: "auto",
+        alignItems:"center",
+        padding:theme.spacing(1)
+      },
+      header: {
+        padding:theme.spacing(2)
+      },
     openroot:{
-        display: 'flex',
-        marginLeft:theme.spacing(-15)
+        width:"100%"
     },
+    drawer: {
+        width: drawerWidth,
+        flexShrink: 0,
+      },
+      drawerPaper: {
+        width: drawerWidth,
+        background: "blue",  
+      },
     text: {
         
         marginLeft: theme.spacing(4),
@@ -33,7 +61,10 @@ const styles = theme => ({
     },
    
     button: {
-        marginLeft: theme.spacing(105)
+        display:"flex",
+        justifyContent: "flex-end",
+        marginLeft: "auto",
+        alignItems:"center"
     },
    
     paper: {
@@ -44,10 +75,7 @@ const styles = theme => ({
     view: {
         marginLeft: theme.spacing(55),
     },
-    Vdivider: {
-        marginLeft: theme.spacing(-23),
-
-    },
+   
     horizon: {
         float: "right",
         marginTop: theme.spacing(-7)
@@ -58,19 +86,14 @@ const styles = theme => ({
     grid2: {
         marginTop: theme.spacing(2)
     },
-   
+   mainroot:{
+padding:theme.spacing(1)
+
+   },
     root1: {
-    
-        paddingTop: theme.spacing(3),
-        paddingLeft: theme.spacing(6),
-       
+       padding:theme.spacing(3)    
     },
-    root2: {
-    
-        marginTop: theme.spacing(3),
-        marginLeft: theme.spacing(8),
-       
-    },
+   
     paper1: {
         padding: theme.spacing(2), 
         background: "blueviolet",
@@ -117,9 +140,7 @@ const styles = theme => ({
         marginRight:theme.spacing(2),
        
       },
-      listItemroot:{
-        overflow:"hidden"
-      },
+     
       listbutton:{
         padding:theme.spacing(2)
       },
@@ -129,7 +150,11 @@ const styles = theme => ({
       },
       container:{
           paddingTop:theme.spacing(2)
-      }
+      },
+      dividerD: {
+        width: "20%",
+        marginLeft: theme.spacing(2),
+      },
 
 
 })
@@ -149,21 +174,128 @@ class App1 extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: ""
+           open:true,
+           full:"",
+           value:""
         }
-    }
+      }
+      close=()=>{
+        this.setState({
+          open:false,
+          full:"opened"
+        })
+      }
+      open=()=>{
+          this.setState({
+              open:true,
+              full:""
+          })
+      }
     render() {
         const { classes } = this.props
         return (
-            <div className={this.props.open ==="opened" ? classes.openroot : classes.root}>
+            <div className={this.state.full==="opened" ? classes.openroot : classes.root}>
                 <CssBaseline />
+                <Drawer
+                 variant="persistent"
+                 anchor="left"
+                 className={classes.drawer}
+                 classes={{
+                    paper: classes.drawerPaper,
+                  }}
+                  open={this.state.open}
+                >
+               <div style={{paddingTop:5}}> 
+               <div className={classes.header}>
+               <GroupWorkIcon style={{ color:  "#f5d442" }} fontSize="large"/>
+               </div>
+            <Divider className={classes.dividerD} />
+            <List>
+              <ListItem button >
+                <ListItemIcon>
+                  <SpeedIcon style={{ color: "white" }} />
+                </ListItemIcon>
+                <ListItemText style={{ color: "white" }} primary="Dashboard" />
+                <ListItemSecondaryAction>
+                    <PlayCircleFilledIcon style={{ color: "#f5d442",cursor:"pointer" }} onClick={this.close}/>
+                </ListItemSecondaryAction>
+              </ListItem>
+              <ListItem button>
+                <ListItemIcon>
+                  <AvTimerIcon style={{ color: "lightgrey" }} />
+                </ListItemIcon>
+                <ListItemText style={{ color: "lightgrey" }} primary="Timesheet" />
+              </ListItem>
+              <ListItem button>
+                <ListItemIcon>
+                  <MultilineChartIcon style={{ color: "lightgrey" }} />
+                </ListItemIcon>
+                <ListItemText style={{ color: "lightgrey" }} primary="Activity" />
+              </ListItem>
+            </List>
+            <Divider className={classes.dividerD} />
+            <List>
+              <ListItem button>
+                <ListItemIcon>
+                <EventAvailableIcon style={{ color: "lightgrey" }} />
+                  
+                </ListItemIcon>
+                <ListItemText style={{ color: "lightgrey" }} primary="To-Do" />
+              </ListItem>
+              <ListItem button>
+                <ListItemIcon>
+                <ListAltIcon style={{ color: "lightgrey" }} />
+                </ListItemIcon>
+                <ListItemText style={{ color: "lightgrey" }} primary="Invoices" />
+              </ListItem>
+              <ListItem button>
+                <ListItemIcon>
+                  <FolderOpenIcon style={{ color: "lightgrey" }} />
+                </ListItemIcon>
+                <ListItemText style={{ color: "lightgrey" }} primary="Projects" />
+              </ListItem>
+            </List>
+            <Divider className={classes.dividerD} />
+            <List>
+              <ListItem button>
+                <ListItemIcon>
+                  <HelpOutlineIcon style={{ color: "lightgrey" }} />
+                </ListItemIcon>
+                <ListItemText style={{ color: "lightgrey" }} primary="Help" />
+              </ListItem>
+              <ListItem button>
+                <ListItemIcon>
+                  <GetAppIcon style={{ color: "lightgrey" }} />
+                </ListItemIcon>
+                <ListItemText style={{ color: "lightgrey" }} primary="Download App" />
+              </ListItem>
+            </List>
+          </div>
+          < div className={classes.footer}>
+          <Grid
+            container
+            direction="row"
+            justify="center"
+            alignItems="flex-end"
+          >
+            <Badge color="secondary" badgeContent={2} style={{ color: "white", marginRight: 20,marginBottom:10 }}>
+              <NotificationsIcon />
+            </Badge>
+            <Divider orientation="vertical" flexItem />
+            <SettingsIcon style={{ color: "white", marginLeft: 20, marginRight: 20,marginBottom:10 }} />
+            <Divider orientation="vertical" flexItem />
+            <Avatar style={{ marginLeft: 20 }}>H</Avatar>
+          </Grid>
+          </div>
+                </Drawer>
                 <main className={classes.content}>
                 <Container fixed className={classes.container}>
-                    <Grid container direction="row" style={{paddingTop:15}}>
+               
+                    <Grid container direction="row" style={{padding:15}}>
                         <Grid item>
-                        <TocIcon className={classes.marker} onClick={this.props.again} fontSize="large"/>
+                        <TocIcon className={classes.marker} onClick={this.open} fontSize="large"/>
                         </Grid>
-                        <Grid item>  
+                        <Grid item >  
                             <Select
                                 value={this.state.value}
                                 displayEmpty
@@ -173,11 +305,11 @@ class App1 extends React.Component {
                                 <MenuItem value={2}></MenuItem>
                             </Select>
                         </Grid>
-                        <Grid item>
+                        <Grid item className={classes.button}>
                             <Button
                                 variant="outlined"
                                 color="primary"
-                                className={classes.button}
+                                
                                 startIcon={<AddIcon />}
                             >
                                 Add Project
@@ -187,17 +319,20 @@ class App1 extends React.Component {
                     <Divider style={{ marginTop: 20 }} />
                     <Grid container direction="row" >
                         <Grid item xs={12} sm={12} md={8} lg={8} >
-                            <div>
+                            <div className={classes.mainroot}>
                                 <div style={{display:"flex",alignItems:"center"}}>
-                                   
-                                <h1 >Timesheet</h1>
-                               
-                               <Button variant="outlined"
-                                        color="primary" className={classes.view}> VIEW FULL SHEET</Button>
-                                       
+                                
+                                    <Grid container direction="row" >
+                                        <Grid item>
+                                        <h1 >Timesheet</h1>
+                                        </Grid>
+                                        <Grid item className={classes.button}>
+                                       <Button variant="outlined"
+                                        color="primary" > VIEW FULL SHEET</Button>
+                                        <MoreHorizIcon style={{marginLeft:10}} />
+                                       </Grid>
                                         
-                                    <MoreHorizIcon style={{marginLeft:10}} />
-                                   
+                                    </Grid>
                                  
                                 </div>
                                 <TableContainer >
@@ -231,8 +366,8 @@ class App1 extends React.Component {
                             <Divider orientation="vertical" />
                         </div>
                         <Grid item xs={12} sm={12} md={3} lg={3} >
-                              <div>
-                                  <Grid container direction="column" spacing={2} className={classes.root1} >
+                              <div className={classes.root1}> 
+                                  <Grid container direction="column" spacing={2}  >
                                       <Grid item >
                                 <Typography variant="h1" style={{ fontSize: 20 }}> Report</Typography>
                                 </Grid>
@@ -305,12 +440,12 @@ class App1 extends React.Component {
                                 </div>
                         </Grid>
                     </Grid>
-                    <div>
-                        <Divider />
-                    </div>
+                    
+                        <Divider variant="fullWidth"/>
+                    
                     <Grid container direction="row">
                         <Grid item xs={12} sm={12} md={8} lg={8}>
-                            <div>
+                            <div className={classes.mainroot}>
                                 <Typography variant="h1" style={{ fontSize: 20, marginTop: 20 }}> To-Do lists</Typography>
                                 <Grid container spacing={1} className={classes.grid}>
                                     <Grid container spacing={2} direction="row" className={classes.grid2}>
@@ -359,7 +494,8 @@ class App1 extends React.Component {
                             <Divider orientation="vertical" className={classes.Vdivider} />
                         </div> */}
                         <Grid item  xs={12} sm={12} lg={3} md={3} >
-                                <Grid container direction="column" spacing={2} className={classes.root1} >
+                            <div className={classes.root1}>
+                                <Grid container direction="column" spacing={2}  >
                                     <Grid item> 
                                 <Typography variant="h1" style={{ fontSize: 20}}> Screenshots</Typography>
                                 </Grid>
@@ -414,7 +550,7 @@ class App1 extends React.Component {
                                 <Button variant="outlined" color="primary" style={{width:310}} size="large">View All</Button>
                                 </Grid>
                                 </Grid>
-                            
+                                </div>
                         </Grid>
                     </Grid>
                 </Container>
