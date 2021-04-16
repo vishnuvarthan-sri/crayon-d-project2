@@ -45,7 +45,8 @@ const styles = theme => ({
         padding:theme.spacing(2)
       },
     openroot:{
-        width:"100%"
+        width:"100%",
+        background:"white",
     },
     drawer: {
         width: drawerWidth,
@@ -435,7 +436,7 @@ class App1 extends React.Component {
                                     </Grid>
                                 </Paper>
                                 </Grid>
-                                <Grid item  >
+                                <Grid item >
                                 <Button variant="outlined" color="primary" startIcon={<Description />} style={{width:300}} size="large">Export As Pdf</Button> 
                                 </Grid>
                                 </Grid>
