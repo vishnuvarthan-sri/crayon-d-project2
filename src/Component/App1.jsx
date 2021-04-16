@@ -289,10 +289,10 @@ class App1 extends React.Component {
           </Grid>
           </div>
                 </Drawer>
-                <main className={classes.content}>
-                <Container fixed className={classes.container}>
                
-                    <Grid container direction="row" style={{padding:15}}>
+                <div>
+               
+                    <Grid container direction="row" style={{padding:30}}>
                         <Grid item>
                         <TocIcon className={classes.marker} onClick={this.open} fontSize="large"/>
                         </Grid>
@@ -317,7 +317,7 @@ class App1 extends React.Component {
                     </Button>
                         </Grid>
                     </Grid>
-                    <Divider style={{ marginTop: 20 }} />
+                    <Divider />
                     <Grid container direction="row" >
                         <Grid item xs={12} sm={12} md={8} lg={8} >
                             <div className={classes.mainroot}>
@@ -361,11 +361,12 @@ class App1 extends React.Component {
                                     </Table>
                                 </TableContainer>
                             </div>
-
+                           
                         </Grid>
-                        <div style={{ marginLeft: 20 }}>
-                            <Divider orientation="vertical" />
+                        <div>
+                        <Divider orientation="vertical"/>
                         </div>
+                        
                         <Grid item xs={12} sm={12} md={3} lg={3} >
                               <div className={classes.root1}> 
                                   <Grid container direction="column" spacing={2}  >
@@ -489,7 +490,7 @@ class App1 extends React.Component {
                             </div>
                         </Grid>
                         <div>
-                            <Divider orientation="vertical" style={{marginLeft:20}}/>
+                            <Divider orientation="vertical"/>
                         </div>
                         {/* <div >
                             <Divider orientation="vertical" className={classes.Vdivider} />
@@ -554,8 +555,8 @@ class App1 extends React.Component {
                                 </div>
                         </Grid>
                     </Grid>
-                </Container>
-                </main>
+                </div>
+                
             </div>
 
         )
