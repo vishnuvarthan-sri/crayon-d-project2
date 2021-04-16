@@ -291,7 +291,7 @@ class App1 extends React.Component {
           </div>
                 </Drawer>
                
-                <div>
+                <div style={{background:"white"}}>
                
                     <Grid container direction="row" style={{padding:30}}>
                         <Grid item>
