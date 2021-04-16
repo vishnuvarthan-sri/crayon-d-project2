@@ -88,11 +88,11 @@ const styles = theme => ({
         marginTop: theme.spacing(2)
     },
    mainroot:{
-padding:theme.spacing(1)
+padding:theme.spacing(2)
 
    },
     root1: {
-       padding:theme.spacing(3)    
+       padding:theme.spacing(4)    
     },
    
     paper1: {
