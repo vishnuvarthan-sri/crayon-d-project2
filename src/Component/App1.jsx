@@ -93,7 +93,7 @@ padding:theme.spacing(2)
 
    },
     root1: {
-       padding:theme.spacing(4)    
+       padding:theme.spacing(5)    
     },
    
     paper1: {
@@ -370,7 +370,7 @@ class App1 extends React.Component {
                         
                         <Grid item xs={12} sm={12} md={3} lg={3} >
                               <div className={classes.root1}> 
-                                  <Grid container direction="column" spacing={2}  >
+                                  <Grid container direction="column" spacing={1}  >
                                       <Grid item >
                                 <Typography variant="h1" style={{ fontSize: 20 }}> Report</Typography>
                                 </Grid>
