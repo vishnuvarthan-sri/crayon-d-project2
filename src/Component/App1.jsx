@@ -450,7 +450,7 @@ class App1 extends React.Component {
                         <Grid item xs={12} sm={12} md={8} lg={8}>
                             <div className={classes.mainroot}>
                                 <Typography variant="h1" style={{ fontSize: 20, marginTop: 20 }}> To-Do lists</Typography>
-                                <Grid container  className={classes.grid}>
+                                <Grid container >
                                     <Grid container spacing={2} direction="row" className={classes.grid2}>
                                         <Grid item style={{ marginTop: 15 }}>
                                             <Typography variant="h1" style={{ fontSize: 20, color: "blueviolet" }} align="center">20<br /> May</Typography>
