@@ -47,6 +47,7 @@ const styles = theme => ({
     openroot:{
         width:"100%",
         background:"white",
+        flex:1
     },
     drawer: {
         width: drawerWidth,
@@ -320,7 +321,7 @@ class App1 extends React.Component {
                     </Grid>
                     <Divider />
                     <Grid container direction="row" >
-                        <Grid item xs={12} sm={12} md={8} lg={8} >
+                        <Grid item xs={12} sm={12} md={8} lg={8} style={{borderRight:"1px solid rgba(0,0,0,0.12)"}} >
                             <div className={classes.mainroot}>
                                 <div style={{display:"flex",alignItems:"center"}}>
                                 
@@ -364,11 +365,8 @@ class App1 extends React.Component {
                             </div>
                            
                         </Grid>
-                        <div>
-                        <Divider orientation="vertical"/>
-                        </div>
                         
-                        <Grid item xs={12} sm={12} md={3} lg={3} >
+                        <Grid item xs={12} sm={12} md={4} lg={4} >
                               <div className={classes.root1}> 
                                   <Grid container direction="column"  spacing={1}>
                                       <Grid item >
@@ -447,7 +445,7 @@ class App1 extends React.Component {
                         <Divider variant="fullWidth"/>
                     
                     <Grid container direction="row">
-                        <Grid item xs={12} sm={12} md={8} lg={8}>
+                        <Grid item xs={12} sm={12} md={8} lg={8} style={{borderRight:"1px solid rgba(0,0,0,0.12)"}}>
                             <div className={classes.mainroot}>
                                 <Typography variant="h1" style={{ fontSize: 20, marginTop: 20 }}> To-Do lists</Typography>
                                 <Grid container >
@@ -490,13 +488,11 @@ class App1 extends React.Component {
                                 </Grid>
                             </div>
                         </Grid>
-                        <div>
-                            <Divider orientation="vertical"/>
-                        </div>
+                        
                         {/* <div >
                             <Divider orientation="vertical" className={classes.Vdivider} />
                         </div> */}
-                        <Grid item  xs={12} sm={12} lg={3} md={3} >
+                        <Grid item  xs={12} sm={12} lg={4} md={4} >
                             <div className={classes.root1}>
                                 <Grid container direction="column"   >
                                     <Grid item> 
