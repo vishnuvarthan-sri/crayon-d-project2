@@ -33,6 +33,7 @@ const styles = theme => ({
     root: {
         display: 'flex',
         background:"white",
+        flex:1
     },
     
     footer: {
