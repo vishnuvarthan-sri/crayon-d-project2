@@ -27,6 +27,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import SettingsIcon from '@material-ui/icons/Settings';
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import GroupWorkIcon from '@material-ui/icons/GroupWork';
+import Hidden from '@material-ui/core/Hidden';
 const drawerWidth = 200;
 const styles = theme => ({
     root: {
@@ -52,10 +53,11 @@ const styles = theme => ({
     drawer: {
         width: drawerWidth,
         flexShrink: 0,
+        
       },
       drawerPaper: {
         width: drawerWidth,
-        background: "blue",  
+        background: "blue", 
       },
     text: {
         
@@ -143,6 +145,9 @@ padding:theme.spacing(2)
         marginRight:theme.spacing(2),
        
       },
+      variant:{
+
+      },
      
       listbutton:{
         padding:theme.spacing(2)
@@ -199,6 +204,7 @@ class App1 extends React.Component {
         return (
             <div className={this.state.full==="opened" ? classes.openroot : classes.root}>
                 <CssBaseline />
+                <Hidden smDown implementation="css">
                 <Drawer
                  variant="persistent"
                  anchor="left"
@@ -291,6 +297,101 @@ class App1 extends React.Component {
           </Grid>
           </div>
                 </Drawer>
+                </Hidden>
+                <Hidden mdUp >
+                <Drawer
+                 variant="temporary"
+                 anchor="left"
+                 className={classes.drawer}
+                 classes={{
+                    paper: classes.drawerPaper,
+                  }}
+                  open={this.state.open}
+                >
+               <div style={{paddingTop:5}}> 
+               <div className={classes.header}>
+               <GroupWorkIcon style={{ color:  "#f5d442" }} fontSize="large"/>
+               </div>
+            <Divider className={classes.dividerD} />
+            <List>
+              <ListItem button >
+                <ListItemIcon>
+                  <SpeedIcon style={{ color: "white" }} />
+                </ListItemIcon>
+                <ListItemText style={{ color: "white" }} primary="Dashboard" />
+                <ListItemSecondaryAction>
+                    <PlayCircleFilledIcon style={{ color: "#f5d442",cursor:"pointer" }} onClick={this.close}/>
+                </ListItemSecondaryAction>
+              </ListItem>
+              <ListItem button>
+                <ListItemIcon>
+                  <AvTimerIcon style={{ color: "lightgrey" }} />
+                </ListItemIcon>
+                <ListItemText style={{ color: "lightgrey" }} primary="Timesheet" />
+              </ListItem>
+              <ListItem button>
+                <ListItemIcon>
+                  <MultilineChartIcon style={{ color: "lightgrey" }} />
+                </ListItemIcon>
+                <ListItemText style={{ color: "lightgrey" }} primary="Activity" />
+              </ListItem>
+            </List>
+            <Divider className={classes.dividerD} />
+            <List>
+              <ListItem button>
+                <ListItemIcon>
+                <EventAvailableIcon style={{ color: "lightgrey" }} />
+                  
+                </ListItemIcon>
+                <ListItemText style={{ color: "lightgrey" }} primary="To-Do" />
+              </ListItem>
+              <ListItem button>
+                <ListItemIcon>
+                <ListAltIcon style={{ color: "lightgrey" }} />
+                </ListItemIcon>
+                <ListItemText style={{ color: "lightgrey" }} primary="Invoices" />
+              </ListItem>
+              <ListItem button>
+                <ListItemIcon>
+                  <FolderOpenIcon style={{ color: "lightgrey" }} />
+                </ListItemIcon>
+                <ListItemText style={{ color: "lightgrey" }} primary="Projects" />
+              </ListItem>
+            </List>
+            <Divider className={classes.dividerD} />
+            <List>
+              <ListItem button>
+                <ListItemIcon>
+                  <HelpOutlineIcon style={{ color: "lightgrey" }} />
+                </ListItemIcon>
+                <ListItemText style={{ color: "lightgrey" }} primary="Help" />
+              </ListItem>
+              <ListItem button>
+                <ListItemIcon>
+                  <GetAppIcon style={{ color: "lightgrey" }} />
+                </ListItemIcon>
+                <ListItemText style={{ color: "lightgrey" }} primary="Download App" />
+              </ListItem>
+            </List>
+          </div>
+          < div className={classes.footer}>
+          <Grid
+            container
+            direction="row"
+            justify="center"
+            alignItems="flex-end"
+          >
+            <Badge color="secondary" badgeContent={2} style={{ color: "white", marginRight: 20,marginBottom:10 }}>
+              <NotificationsIcon />
+            </Badge>
+            <Divider orientation="vertical" flexItem />
+            <SettingsIcon style={{ color: "white", marginLeft: 20, marginRight: 20,marginBottom:10 }} />
+            <Divider orientation="vertical" flexItem />
+            <Avatar style={{ marginLeft: 20 }}>H</Avatar>
+          </Grid>
+          </div>
+                </Drawer>
+                </Hidden>
                
                 <div style={{background:"white"}}>
                
