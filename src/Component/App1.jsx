@@ -370,7 +370,7 @@ class App1 extends React.Component {
                         
                         <Grid item xs={12} sm={12} md={3} lg={3} >
                               <div className={classes.root1}> 
-                                  <Grid container direction="column" spacing={1}  >
+                                  <Grid container direction="column"  spacing={1}>
                                       <Grid item >
                                 <Typography variant="h1" style={{ fontSize: 20 }}> Report</Typography>
                                 </Grid>
@@ -450,7 +450,7 @@ class App1 extends React.Component {
                         <Grid item xs={12} sm={12} md={8} lg={8}>
                             <div className={classes.mainroot}>
                                 <Typography variant="h1" style={{ fontSize: 20, marginTop: 20 }}> To-Do lists</Typography>
-                                <Grid container spacing={1} className={classes.grid}>
+                                <Grid container  className={classes.grid}>
                                     <Grid container spacing={2} direction="row" className={classes.grid2}>
                                         <Grid item style={{ marginTop: 15 }}>
                                             <Typography variant="h1" style={{ fontSize: 20, color: "blueviolet" }} align="center">20<br /> May</Typography>
@@ -498,7 +498,7 @@ class App1 extends React.Component {
                         </div> */}
                         <Grid item  xs={12} sm={12} lg={3} md={3} >
                             <div className={classes.root1}>
-                                <Grid container direction="column" spacing={2}  >
+                                <Grid container direction="column"   >
                                     <Grid item> 
                                 <Typography variant="h1" style={{ fontSize: 20}}> Screenshots</Typography>
                                 </Grid>
