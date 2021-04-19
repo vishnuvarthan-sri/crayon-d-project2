@@ -33,7 +33,6 @@ const styles = theme => ({
     root: {
         display: 'flex',
         background:"white",
-        flex:1
     },
     
     footer: {
@@ -49,7 +48,7 @@ const styles = theme => ({
     openroot:{
         width:"100%",
         background:"white",
-        flex:1
+       
     },
     drawer: {
         width: drawerWidth,
@@ -394,7 +393,7 @@ class App1 extends React.Component {
                 </Drawer>
                 </Hidden>
                
-                <div style={{background:"white"}}>
+                <div style={{background:"white",flex:1}}>
                
                     <Grid container direction="row" style={{padding:30}}>
                         <Grid item>
